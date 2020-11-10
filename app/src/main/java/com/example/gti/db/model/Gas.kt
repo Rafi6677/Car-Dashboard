@@ -1,4 +1,4 @@
-package com.example.gti.db
+package com.example.gti.db.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
