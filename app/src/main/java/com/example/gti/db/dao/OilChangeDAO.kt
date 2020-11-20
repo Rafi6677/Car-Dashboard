@@ -22,4 +22,7 @@ interface OilChangeDAO {
     @Query("SELECT * FROM oil_change_features")
     fun getAllOilChangeData(): LiveData<List<OilChange>>
 
+    @Query("SELECT * FROM oil_change_features WHERE last_oil_change_timestamp = (SELECT MAX(last_oil_change_timestamp) FROM oil_change_features)")
+    fun getLatestOilChangeData(): LiveData<OilChange>
+
 }

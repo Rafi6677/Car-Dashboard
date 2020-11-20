@@ -1,12 +1,10 @@
 package com.example.gti.db.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.example.gti.db.model.OilCheck
 
+@Dao
 interface OilCheckDAO {
 
     @Insert
@@ -23,5 +21,8 @@ interface OilCheckDAO {
 
     @Query("SELECT * FROM oil_level_features")
     fun getAllOilCheckData(): LiveData<List<OilCheck>>
+
+    @Query("SELECT * FROM oil_level_features WHERE last_oil_check_timestamp = (SELECT MAX(last_oil_check_timestamp) FROM oil_level_features)")
+    fun getLatestOilCheckData(): LiveData<OilCheck>
 
 }

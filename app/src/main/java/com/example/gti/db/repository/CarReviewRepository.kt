@@ -6,6 +6,7 @@ import com.example.gti.db.model.CarReview
 class CarReviewRepository(private val dao: CarReviewDAO) {
 
     val carReviewList = dao.getAllCarReviewData()
+    val latestCarReview = dao.getLatestCarReviewData()
 
     suspend fun insert(carReview: CarReview): Long {
         return dao.insertCarReviewData(carReview)

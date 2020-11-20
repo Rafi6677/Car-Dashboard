@@ -3,7 +3,6 @@ package com.example.gti.db.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
 
 @Entity(tableName = "car_insurance")
 data class CarInsurance(
@@ -12,7 +11,7 @@ data class CarInsurance(
     @ColumnInfo(name = "id")
     val id: Int,
 
-    @ColumnInfo(name = "car_insurance_date")
-    val carReviewDate: Date
+    @ColumnInfo(name = "car_insurance_timestamp")
+    val carReviewTimestamp: Long
 
 )

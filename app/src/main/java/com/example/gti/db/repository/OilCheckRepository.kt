@@ -6,6 +6,7 @@ import com.example.gti.db.model.OilCheck
 class OilCheckRepository(private val dao: OilCheckDAO) {
 
     val oilCheckDataList = dao.getAllOilCheckData()
+    val latestOilCheckData = dao.getLatestOilCheckData()
 
     suspend fun insert(oilCheck: OilCheck): Long {
         return dao.insertOilCheckData(oilCheck)

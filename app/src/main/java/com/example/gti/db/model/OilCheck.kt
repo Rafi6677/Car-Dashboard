@@ -3,7 +3,6 @@ package com.example.gti.db.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
 
 @Entity(tableName = "oil_level_features")
 data class OilCheck(
@@ -18,7 +17,7 @@ data class OilCheck(
     @ColumnInfo(name = "current_car_mileage")
     val currentCarMileage: Int,
 
-    @ColumnInfo(name = "oil_check_date")
-    val timestamp: Date
+    @ColumnInfo(name = "last_oil_check_timestamp")
+    val oilCheckTimestamp: Long
 
 )

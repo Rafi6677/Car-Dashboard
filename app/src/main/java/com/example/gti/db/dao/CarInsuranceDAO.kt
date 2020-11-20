@@ -22,4 +22,7 @@ interface CarInsuranceDAO {
     @Query("SELECT * FROM car_insurance")
     fun getAllCarInsuranceData(): LiveData<List<CarInsurance>>
 
+    @Query("SELECT * FROM car_insurance WHERE car_insurance_timestamp = (SELECT MAX(car_insurance_timestamp) FROM car_insurance)")
+    fun getLatestCarInsuranceData(): LiveData<CarInsurance>
+
 }

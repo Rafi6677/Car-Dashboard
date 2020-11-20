@@ -22,4 +22,7 @@ interface CarReviewDAO {
     @Query("SELECT * FROM car_review")
     fun getAllCarReviewData(): LiveData<List<CarReview>>
 
+    @Query("SELECT * FROM car_review WHERE car_review_timestamp = (SELECT MAX(car_review_timestamp) FROM car_review)")
+    fun getLatestCarReviewData(): LiveData<CarReview>
+
 }

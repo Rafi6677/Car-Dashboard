@@ -6,6 +6,7 @@ import com.example.gti.db.model.Gas
 class GasRepository(private val dao: GasDAO) {
 
     val gasDataList = dao.getAllGasData()
+    val latestGasData = dao.getLatestGasData()
 
     suspend fun insert(gas: Gas): Long {
         return dao.insertGasData(gas)

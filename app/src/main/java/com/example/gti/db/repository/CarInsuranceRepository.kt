@@ -6,6 +6,7 @@ import com.example.gti.db.model.CarInsurance
 class CarInsuranceRepository(private val dao: CarInsuranceDAO) {
 
     val carInsuranceList = dao.getAllCarInsuranceData()
+    val latestCarInsuranceData = dao.getLatestCarInsuranceData()
 
     suspend fun insert(carInsurance: CarInsurance): Long {
         return dao.insertCarInsuranceData(carInsurance)
