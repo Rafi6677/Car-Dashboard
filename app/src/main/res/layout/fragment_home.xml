@@ -70,14 +70,14 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/fuel_red" />
+                    tools:srcCompat="@drawable/icon_fuel_white" />
 
                 <TextView
                     android:id="@+id/gas_consumed_fuel_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@={viewModel.gasLatestFuelConsumption}"
-                    android:textColor="@color/colorRed"
+                    android:textColor="@color/colorWhite"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -119,14 +119,14 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/oil_red" />
+                    tools:srcCompat="@drawable/icon_oil_white" />
 
                 <TextView
                     android:id="@+id/oil_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="jakiś tekst"
-                    android:textColor="@color/colorRed"
+                    android:textColor="@color/colorWhite"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -168,14 +168,14 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/document_red" />
+                    tools:srcCompat="@drawable/icon_document_white" />
 
                 <TextView
                     android:id="@+id/documents_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="jakiś tekst"
-                    android:textColor="@color/colorRed"
+                    android:textColor="@color/colorWhite"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"

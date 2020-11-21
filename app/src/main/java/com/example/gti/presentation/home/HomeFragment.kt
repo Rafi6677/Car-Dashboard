@@ -23,7 +23,8 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         val factory = initViewModelFactory()
-        homeViewModel = ViewModelProvider(this, factory).get(HomeFragmentViewModel::class.java)
+        homeViewModel = ViewModelProvider(this, factory)
+            .get(HomeFragmentViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -59,15 +60,15 @@ class HomeFragment : Fragment() {
             .into(binding.mainBackgroundImageView)
 
         Glide.with(this)
-            .load(R.drawable.fuel_red)
+            .load(R.drawable.icon_fuel_white)
             .into(binding.gasImageView)
 
         Glide.with(this)
-            .load(R.drawable.oil_red)
+            .load(R.drawable.icon_oil_white)
             .into(binding.oilImageView)
 
         Glide.with(this)
-            .load(R.drawable.document_red)
+            .load(R.drawable.icon_document_white)
             .into(binding.documentsImageView)
     }
 

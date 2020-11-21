@@ -6,6 +6,7 @@
     <color name="colorTransparent">#0003DAC5</color>
 
     <color name="colorBlack">#000</color>
+    <color name="colorBlackTransparent">#48000000</color>
     <color name="colorGrey">#606060</color>
     <color name="colorGreyTransparent">#32C3C3C3</color>
     <color name="colorRed">#FF0000</color>
