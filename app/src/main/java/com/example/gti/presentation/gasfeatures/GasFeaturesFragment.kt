@@ -9,8 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.gti.R
 import com.example.gti.databinding.FragmentGasFeaturesBinding
-import com.example.gti.db.GtiDatabase
-import com.example.gti.db.repository.GasRepository
+import com.example.gti.data.db.GtiDatabase
 import com.example.gti.utils.KeyboardUtils
 
 class GasFeaturesFragment : Fragment() {
@@ -21,9 +20,7 @@ class GasFeaturesFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val factory = initViewModelFactory()
-        gasFeaturesViewModel = ViewModelProvider(this, factory)
-            .get(GasFeaturesViewModel::class.java)
+
     }
 
     override fun onCreateView(
@@ -63,14 +60,10 @@ class GasFeaturesFragment : Fragment() {
         binding.backButtonImageView.setOnClickListener {
             requireActivity().onBackPressed()
         }
-    }
 
-    private fun initViewModelFactory(): GasFeaturesViewModelFactory {
-        val database = GtiDatabase.getInstance(requireActivity().application)
-        val gasDAO = database.gasDAO
-        val gasRepository = GasRepository(gasDAO)
-
-        return GasFeaturesViewModelFactory(gasRepository)
+        /*binding.saveButtonImageView.setOnClickListener {
+            gasFeaturesViewModel.saveGasFeature(requireActivity(), binding)
+        }*/
     }
 
 }
