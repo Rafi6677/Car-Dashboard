@@ -1,6 +1,5 @@
 package com.example.gti.data.db.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.gti.data.db.model.OilChange
 
@@ -20,9 +19,9 @@ interface OilChangeDAO {
     suspend fun deleteAllOilChangeData(): Int
 
     @Query("SELECT * FROM oil_change_features")
-    fun getAllOilChangeData(): List<OilChange>
+    suspend fun getAllOilChangeData(): List<OilChange>
 
     @Query("SELECT * FROM oil_change_features WHERE last_oil_change_timestamp = (SELECT MAX(last_oil_change_timestamp) FROM oil_change_features)")
-    fun getLatestOilChangeData(): OilChange
+    suspend fun getLatestOilChangeData(): OilChange
 
 }

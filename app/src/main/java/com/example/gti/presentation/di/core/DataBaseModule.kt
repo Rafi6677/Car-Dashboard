@@ -24,31 +24,31 @@ class DataBaseModule {
     @Singleton
     @Provides
     fun provideCarInsuranceDAO(gtiDatabase: GtiDatabase): CarInsuranceDAO {
-        return gtiDatabase.carInsuranceDAO
+        return gtiDatabase.carInsuranceDAO()
     }
 
     @Singleton
     @Provides
     fun provideCarReviewDAO(gtiDatabase: GtiDatabase): CarReviewDAO {
-        return gtiDatabase.carReviewDAO
+        return gtiDatabase.carReviewDAO()
     }
 
     @Singleton
     @Provides
     fun provideGasDAO(gtiDatabase: GtiDatabase): GasDAO {
-        return gtiDatabase.gasDAO
+        return gtiDatabase.gasDAO()
     }
 
     @Singleton
     @Provides
     fun provideOilChangeDAO(gtiDatabase: GtiDatabase): OilChangeDAO {
-        return gtiDatabase.oilChangeDAO
+        return gtiDatabase.oilChangeDAO()
     }
 
     @Singleton
     @Provides
     fun provideOilCheckDAO(gtiDatabase: GtiDatabase): OilCheckDAO {
-        return gtiDatabase.oilCheckDAO
+        return gtiDatabase.oilCheckDAO()
     }
 
 }

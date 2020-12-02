@@ -5,6 +5,7 @@ import com.example.gti.presentation.di.Injector
 import com.example.gti.presentation.di.core.AppComponent
 import com.example.gti.presentation.di.core.AppModule
 import com.example.gti.presentation.di.core.DaggerAppComponent
+import com.example.gti.presentation.di.gas.GasSubcomponent
 import com.example.gti.presentation.di.home.HomeSubcomponent
 
 class App : Application(), Injector {
@@ -19,8 +20,12 @@ class App : Application(), Injector {
             .build()
     }
 
-    override fun createHomeSubComponent(): HomeSubcomponent {
+    override fun createHomeSubcomponent(): HomeSubcomponent {
         return appComponent.homeSubComponent().create()
+    }
+
+    override fun createGasSubcomponent(): GasSubcomponent {
+        return appComponent.gasSubComponent().create()
     }
 
 }

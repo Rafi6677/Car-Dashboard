@@ -33,4 +33,9 @@ class UseCaseModule {
         return GetLatestOilCheckUseCase(oilCheckRepository)
     }
 
+    @Provides
+    fun provideInsertGasUseCase(gasRepository: GasRepository): InsertGasUseCase {
+        return InsertGasUseCase(gasRepository)
+    }
+
 }

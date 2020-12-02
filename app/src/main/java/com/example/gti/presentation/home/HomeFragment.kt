@@ -13,6 +13,10 @@ import com.bumptech.glide.Glide
 import com.example.gti.R
 import com.example.gti.databinding.FragmentHomeBinding
 import com.example.gti.presentation.di.Injector
+import com.example.gti.utils.CalculationUtils
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class HomeFragment : Fragment() {
@@ -26,7 +30,7 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        (requireActivity().application as Injector).createHomeSubComponent()
+        (requireActivity().application as Injector).createHomeSubcomponent()
             .inject(this)
 
         homeViewModel = ViewModelProvider(this, factory)
@@ -60,6 +64,7 @@ class HomeFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
         refreshData()
     }
 
@@ -91,13 +96,13 @@ class HomeFragment : Fragment() {
     private fun refreshData() {
         val gasFeaturesResponse = homeViewModel.getLatestGasData()
 
-        gasFeaturesResponse.removeObservers(this)
-
         gasFeaturesResponse.observe(this, Observer {
             if (it == null) {
                 homeViewModel.gasLatestFuelConsumption.value = "-.-  l/100km"
             } else {
-                homeViewModel.gasLatestFuelConsumption.value = it.litersConsumed.toString() + " " + R.string.average_fuel_consumption_value
+                homeViewModel.gasLatestFuelConsumption.value = CalculationUtils.calculateFuelConsumptionToString(it) +
+                        " " +
+                        resources.getString(R.string.average_fuel_consumption_value)
             }
         })
     }

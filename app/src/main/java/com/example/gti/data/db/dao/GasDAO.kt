@@ -1,6 +1,5 @@
 package com.example.gti.data.db.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.gti.data.db.model.Gas
 
@@ -8,7 +7,7 @@ import com.example.gti.data.db.model.Gas
 interface GasDAO {
 
     @Insert
-    suspend fun insertGasData(gas: Gas): Long
+    suspend fun insertGasData(gas: Gas)
 
     @Update
     suspend fun updateGasData(gas: Gas): Int
@@ -20,9 +19,9 @@ interface GasDAO {
     suspend fun deleteAllGasData(): Int
 
     @Query("SELECT * FROM gas_features")
-    fun getAllGasData(): List<Gas>
+    suspend fun getAllGasData(): List<Gas>
 
     @Query("SELECT * FROM gas_features WHERE last_refueling_timestamp = (SELECT MAX(last_refueling_timestamp) FROM gas_features)")
-    fun getLatestGasData(): Gas
+    suspend fun getLatestGasData(): Gas
 
 }

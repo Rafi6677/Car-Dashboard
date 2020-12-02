@@ -1,5 +1,6 @@
 package com.example.gti.presentation.di.core
 
+import com.example.gti.presentation.di.gas.GasSubcomponent
 import com.example.gti.presentation.di.home.HomeSubcomponent
 import dagger.Component
 import javax.inject.Singleton
@@ -15,5 +16,6 @@ import javax.inject.Singleton
 interface AppComponent {
 
     fun homeSubComponent(): HomeSubcomponent.Factory
+    fun gasSubComponent(): GasSubcomponent.Factory
 
 }

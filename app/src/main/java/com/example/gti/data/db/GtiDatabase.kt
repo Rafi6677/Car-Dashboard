@@ -17,10 +17,10 @@ import com.example.gti.data.db.model.*
 )
 abstract class GtiDatabase : RoomDatabase() {
 
-    abstract val carInsuranceDAO: CarInsuranceDAO
-    abstract val carReviewDAO: CarReviewDAO
-    abstract val gasDAO: GasDAO
-    abstract val oilChangeDAO: OilChangeDAO
-    abstract val oilCheckDAO: OilCheckDAO
+    abstract fun carInsuranceDAO(): CarInsuranceDAO
+    abstract fun carReviewDAO(): CarReviewDAO
+    abstract fun gasDAO(): GasDAO
+    abstract fun oilChangeDAO(): OilChangeDAO
+    abstract fun oilCheckDAO(): OilCheckDAO
 
 }

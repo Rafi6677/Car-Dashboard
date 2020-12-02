@@ -7,12 +7,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gti.databinding.FragmentGasFeaturesBinding
 import com.example.gti.data.db.model.Gas
+import com.example.gti.domain.usecase.InsertGasUseCase
 import kotlinx.coroutines.launch
 import java.util.*
 
-class GasFeaturesViewModel() : ViewModel(), Observable{
+class GasFeaturesViewModel(
+    private val insertGasUseCase: InsertGasUseCase
+) : ViewModel(), Observable{
 
-   /* fun saveGasFeature(context: Context, binding: FragmentGasFeaturesBinding) {
+    fun saveGasFeature(context: Context, binding: FragmentGasFeaturesBinding) {
         val mileageText = binding.leftTextView.text.toString()
         val fuelText = binding.middleTextView.text.toString()
 
@@ -31,7 +34,7 @@ class GasFeaturesViewModel() : ViewModel(), Observable{
                 gasPrice = gasPriceText.toDouble()
             }
 
-            val gasFeature = Gas(
+            val gas = Gas(
                 0,
                 travelDistance,
                 litersConsumed,
@@ -39,14 +42,16 @@ class GasFeaturesViewModel() : ViewModel(), Observable{
                 currentDate
             )
 
-            insert(gasFeature)
+            insert(context, gas)
         }
-    }*/
+    }
 
-   /* private fun insert(gas: Gas) = viewModelScope.launch {
-        val index = gasRepository.insert(gas)
-        val test: String
-    }*/
+    private fun insert(context: Context, gas: Gas) = viewModelScope.launch {
+        val index = insertGasUseCase.execute(gas)
+
+        Toast.makeText(context, "Inserted row: $index", Toast.LENGTH_SHORT)
+            .show()
+    }
 
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {}
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {}

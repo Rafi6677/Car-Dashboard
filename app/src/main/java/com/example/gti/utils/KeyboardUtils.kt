@@ -4,9 +4,7 @@ import android.widget.Button
 import com.example.gti.databinding.FragmentGasFeaturesBinding
 import com.example.gti.databinding.KeyboardLayoutBinding
 
-class KeyboardUtils {
-
-    companion object {
+object KeyboardUtils {
 
         private val keyboardButtonsList = ArrayList<Button>()
 
@@ -257,7 +255,5 @@ class KeyboardUtils {
                 return infoText + keyboardButtonText
             }
         }
-
-    }
 
 }

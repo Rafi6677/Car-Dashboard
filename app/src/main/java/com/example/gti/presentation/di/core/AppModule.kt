@@ -1,12 +1,16 @@
 package com.example.gti.presentation.di.core
 
 import android.content.Context
+import com.example.gti.presentation.di.gas.GasSubcomponent
 import com.example.gti.presentation.di.home.HomeSubcomponent
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module(subcomponents = [HomeSubcomponent::class])
+@Module(subcomponents = [
+    HomeSubcomponent::class,
+    GasSubcomponent::class
+])
 class AppModule(private val context: Context) {
 
     @Singleton

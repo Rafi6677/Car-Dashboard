@@ -9,10 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.gti.R
 import com.example.gti.databinding.FragmentGasFeaturesBinding
-import com.example.gti.data.db.GtiDatabase
+import com.example.gti.presentation.di.Injector
 import com.example.gti.utils.KeyboardUtils
+import javax.inject.Inject
 
 class GasFeaturesFragment : Fragment() {
+
+    @Inject
+    lateinit var factory: GasFeaturesViewModelFactory
 
     private lateinit var binding: FragmentGasFeaturesBinding
     private lateinit var gasFeaturesViewModel: GasFeaturesViewModel
@@ -20,7 +24,11 @@ class GasFeaturesFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        (requireActivity().application as Injector).createGasSubcomponent()
+            .inject(this)
 
+        gasFeaturesViewModel = ViewModelProvider(this, factory)
+            .get(GasFeaturesViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -61,9 +69,10 @@ class GasFeaturesFragment : Fragment() {
             requireActivity().onBackPressed()
         }
 
-        /*binding.saveButtonImageView.setOnClickListener {
+        binding.saveButtonImageView.setOnClickListener {
             gasFeaturesViewModel.saveGasFeature(requireActivity(), binding)
-        }*/
+            requireActivity().onBackPressed()
+        }
     }
 
 }
