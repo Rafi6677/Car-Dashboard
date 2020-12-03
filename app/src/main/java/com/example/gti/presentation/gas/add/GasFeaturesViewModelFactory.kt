@@ -1,4 +1,4 @@
-package com.example.gti.presentation.gasfeatures
+package com.example.gti.presentation.gas.add
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -11,7 +11,9 @@ class GasFeaturesViewModelFactory(
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(GasFeaturesViewModel::class.java)) {
-            return GasFeaturesViewModel(insertGasUseCase) as T
+            return GasFeaturesViewModel(
+                insertGasUseCase
+            ) as T
         }
 
         throw IllegalArgumentException("Unknown View Model Class")

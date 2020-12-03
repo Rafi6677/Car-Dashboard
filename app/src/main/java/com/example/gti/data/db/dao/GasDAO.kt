@@ -18,7 +18,7 @@ interface GasDAO {
     @Query("DELETE FROM gas_features")
     suspend fun deleteAllGasData(): Int
 
-    @Query("SELECT * FROM gas_features")
+    @Query("SELECT * FROM gas_features ORDER BY last_refueling_timestamp DESC")
     suspend fun getAllGasData(): List<Gas>
 
     @Query("SELECT * FROM gas_features WHERE last_refueling_timestamp = (SELECT MAX(last_refueling_timestamp) FROM gas_features)")

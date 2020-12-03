@@ -1,10 +1,11 @@
-package com.example.gti.presentation.gasfeatures
+package com.example.gti.presentation.gas.add
 
 import android.content.Context
 import android.widget.Toast
 import androidx.databinding.Observable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.gti.R
 import com.example.gti.databinding.FragmentGasFeaturesBinding
 import com.example.gti.data.db.model.Gas
 import com.example.gti.domain.usecase.InsertGasUseCase
@@ -49,7 +50,7 @@ class GasFeaturesViewModel(
     private fun insert(context: Context, gas: Gas) = viewModelScope.launch {
         val index = insertGasUseCase.execute(gas)
 
-        Toast.makeText(context, "Inserted row: $index", Toast.LENGTH_SHORT)
+        Toast.makeText(context, context.resources.getString(R.string.average_fuel_save), Toast.LENGTH_SHORT)
             .show()
     }
 

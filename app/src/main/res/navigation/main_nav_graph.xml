@@ -17,8 +17,16 @@
 
     <fragment
         android:id="@+id/gasFeaturesFragment"
-        android:name="com.example.gti.presentation.gasfeatures.GasFeaturesFragment"
+        android:name="com.example.gti.presentation.gas.add.GasFeaturesFragment"
         android:label="GasFeaturesFragment"
-        tools:layout="@layout/fragment_gas_features" />
+        tools:layout="@layout/fragment_gas_features" >
+        <action
+            android:id="@+id/action_gasFeaturesFragment_to_gasConsumptionHistoryFragment"
+            app:destination="@id/gasConsumptionHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gasConsumptionHistoryFragment"
+        android:name="com.example.gti.presentation.gas.history.GasConsumptionHistoryFragment"
+        android:label="GasConsumptionHistoryFragment" />
 
 </navigation>

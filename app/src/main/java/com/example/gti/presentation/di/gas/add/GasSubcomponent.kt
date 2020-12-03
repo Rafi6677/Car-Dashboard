@@ -1,6 +1,6 @@
-package com.example.gti.presentation.di.gas
+package com.example.gti.presentation.di.gas.add
 
-import com.example.gti.presentation.gasfeatures.GasFeaturesFragment
+import com.example.gti.presentation.gas.add.GasFeaturesFragment
 import dagger.Subcomponent
 
 @GasScope

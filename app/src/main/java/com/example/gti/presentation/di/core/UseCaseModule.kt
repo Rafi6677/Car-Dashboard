@@ -9,6 +9,21 @@ import dagger.Provides
 class UseCaseModule {
 
     @Provides
+    fun provideDeleteGasUseCase(gasRepository: GasRepository): DeleteGasUseCase {
+        return DeleteGasUseCase(gasRepository)
+    }
+
+    @Provides
+    fun provideEditGasUseCase(gasRepository: GasRepository): EditGasUseCase {
+        return EditGasUseCase(gasRepository)
+    }
+
+    @Provides
+    fun provideGetAllGasUseCase(gasRepository: GasRepository): GetAllGasUseCase {
+        return GetAllGasUseCase(gasRepository)
+    }
+
+    @Provides
     fun provideGetLatestCarInsuranceUseCase(carInsuranceRepository: CarInsuranceRepository): GetLatestCarInsuranceUseCase {
         return GetLatestCarInsuranceUseCase(carInsuranceRepository)
     }

@@ -9,9 +9,13 @@ object CalculationUtils {
     fun calculateFuelConsumptionToString(gas: Gas): String {
         val fuelConsumption = ((gas.litersConsumed * 100) / gas.travelDistance)
 
-        return BigDecimal(fuelConsumption)
-            .setScale(2, RoundingMode.HALF_UP)
-            .toString()
+        return StringUtils.getStringFromDouble(fuelConsumption)
+    }
+
+    fun calculateGasRefuelingPrice(gas: Gas): String {
+        val totalPrice = (gas.litersConsumed * gas.gasPrice)
+
+        return StringUtils.getStringFromDouble(totalPrice)
     }
 
 }

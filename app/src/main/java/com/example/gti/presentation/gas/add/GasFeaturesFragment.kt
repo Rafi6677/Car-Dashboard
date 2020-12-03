@@ -1,4 +1,4 @@
-package com.example.gti.presentation.gasfeatures
+package com.example.gti.presentation.gas.add
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.example.gti.R
 import com.example.gti.databinding.FragmentGasFeaturesBinding
 import com.example.gti.presentation.di.Injector
@@ -67,6 +68,10 @@ class GasFeaturesFragment : Fragment() {
 
         binding.backButtonImageView.setOnClickListener {
             requireActivity().onBackPressed()
+        }
+
+        binding.historyButtonImageView.setOnClickListener {
+            it.findNavController().navigate(R.id.action_gasFeaturesFragment_to_gasConsumptionHistoryFragment)
         }
 
         binding.saveButtonImageView.setOnClickListener {
