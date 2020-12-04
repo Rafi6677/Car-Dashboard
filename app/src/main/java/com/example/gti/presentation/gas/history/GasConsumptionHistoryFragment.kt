@@ -1,5 +1,6 @@
 package com.example.gti.presentation.gas.history
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gti.R
+import com.example.gti.data.db.model.Gas
 import com.example.gti.databinding.FragmentGasConsumptionHistoryBinding
 import com.example.gti.presentation.di.Injector
 import javax.inject.Inject
@@ -52,11 +54,14 @@ class GasConsumptionHistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initRecyclerView()
+        initButtons()
     }
 
     private fun initRecyclerView() {
         binding.gasHistoryRecyclerView.layoutManager = LinearLayoutManager(this.context)
-        adapter = GasConsumptionHistoryAdapter()
+        adapter = GasConsumptionHistoryAdapter{
+                selectedGasData: Gas -> deleteGasDataButtonClicked(selectedGasData)
+        }
         binding.gasHistoryRecyclerView.adapter = adapter
 
         displayGasData()
@@ -69,16 +74,41 @@ class GasConsumptionHistoryFragment : Fragment() {
         val response = gasConsumptionHistoryViewModel.getGasAllData()
 
         response.observe(viewLifecycleOwner, Observer {
-            if (it!!.isNotEmpty()) {
-                adapter.setList(it)
-                adapter.notifyDataSetChanged()
+            adapter.setList(it)
+            adapter.notifyDataSetChanged()
 
+            if (it!!.isNotEmpty()) {
                 binding.gasHistoryProgressBar.visibility = View.GONE
             } else {
                 binding.gasHistoryProgressBar.visibility = View.GONE
                 binding.noFuelConsumptionDataFoundTextView.visibility = View.VISIBLE
             }
         })
+    }
+
+    private fun initButtons() {
+        binding.backButtonImageView.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
+    }
+
+    private fun deleteGasDataButtonClicked(gas: Gas) {
+        AlertDialog.Builder(this.context)
+            .setTitle(resources.getString(R.string.record_delete))
+            .setMessage(resources.getString(R.string.record_delete_confirmation))
+            .setPositiveButton(resources.getString(R.string.yes)) { _, _ ->
+                gasConsumptionHistoryViewModel.deleteGasData(gas)
+                refresh()
+            }
+            .setNegativeButton(resources.getString(R.string.no)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    private fun refresh() {
+        adapter.setList(null)
+        displayGasData()
     }
 
 }

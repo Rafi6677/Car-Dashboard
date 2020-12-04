@@ -3,4 +3,9 @@
     <string name="average_fuel_consumption_value">l/100km</string>
     <string name="average_fuel_save">Zapisano zużycie paliwa.</string>
     <string name="no_fuel_consumption_data">Brak zapisanych odczytów spalania.</string>
+    <string name="record_delete">Usuwanie wpisu</string>
+    <string name="record_delete_confirmation">Czy na pewno chcesz usunąć dane spalania?</string>
+    <string name="yes">TAK</string>
+    <string name="no">NIE</string>
+
 </resources>

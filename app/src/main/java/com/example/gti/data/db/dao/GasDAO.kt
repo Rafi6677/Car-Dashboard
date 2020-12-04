@@ -13,7 +13,7 @@ interface GasDAO {
     suspend fun updateGasData(gas: Gas): Int
 
     @Delete
-    suspend fun deleteGasData(gas: Gas): Int
+    suspend fun deleteGasData(gas: Gas)
 
     @Query("DELETE FROM gas_features")
     suspend fun deleteAllGasData(): Int

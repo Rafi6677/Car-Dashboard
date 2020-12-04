@@ -9,16 +9,19 @@ import com.example.gti.data.db.model.Gas
 import com.example.gti.databinding.ItemFuelConsumptionBinding
 import com.example.gti.utils.CalculationUtils
 import com.example.gti.utils.StringUtils
-import java.util.*
 import kotlin.collections.ArrayList
 
-class GasConsumptionHistoryAdapter : RecyclerView.Adapter<GasConsumptionViewHolder>() {
+class GasConsumptionHistoryAdapter(private val clickListener: (Gas) -> Unit)
+    : RecyclerView.Adapter<GasConsumptionViewHolder>() {
 
     private val gasConsumptionList = ArrayList<Gas>()
 
-    fun setList(gasConsumptionList: List<Gas>) {
+    fun setList(gasConsumptionList: List<Gas>?) {
         this.gasConsumptionList.clear()
-        this.gasConsumptionList.addAll(gasConsumptionList)
+
+        if (gasConsumptionList != null) {
+            this.gasConsumptionList.addAll(gasConsumptionList)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GasConsumptionViewHolder {
@@ -38,14 +41,14 @@ class GasConsumptionHistoryAdapter : RecyclerView.Adapter<GasConsumptionViewHold
     }
 
     override fun onBindViewHolder(holder: GasConsumptionViewHolder, position: Int) {
-        holder.bind(gasConsumptionList[position])
+        holder.bind(gasConsumptionList[position], clickListener)
     }
 
 }
 
 class GasConsumptionViewHolder(val binding: ItemFuelConsumptionBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(gas: Gas) {
+    fun bind(gas: Gas, clickListener:(Gas)->Unit) {
         binding.fuelConsumedTextView.text = CalculationUtils.calculateFuelConsumptionToString(gas)
         binding.travelDistanceTextView.text = StringUtils.getStringFromDouble(gas.travelDistance)
 
@@ -58,6 +61,10 @@ class GasConsumptionViewHolder(val binding: ItemFuelConsumptionBinding) : Recycl
         }
 
         binding.refuelingDateTextView.text = StringUtils.formatDateFromTimestampToString(gas.lastRefuelingTimestamp)
+
+        binding.deleteButton.setOnClickListener {
+            clickListener(gas)
+        }
     }
 
 }
