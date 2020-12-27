@@ -30,8 +30,8 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideOilChangeRepository(oilChangeDataSource: OilChangeDataSource): OilChangeRepository {
-        return OilChangeRepositoryImpl(oilChangeDataSource)
+    fun provideFiltersChangeRepository(filtersChangeDataSource: FiltersChangeDataSource): FiltersChangeRepository {
+        return FiltersChangeRepositoryImpl(filtersChangeDataSource)
     }
 
     @Singleton

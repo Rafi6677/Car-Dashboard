@@ -90,7 +90,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/oil_CardView"
+            android:id="@+id/exploitation_CardView"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_gasFeaturesFragment"
             app:destination="@id/gasFeaturesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_exploitationFragment"
+            app:destination="@id/exploitationFragment" />
     </fragment>
 
     <fragment
@@ -28,5 +31,9 @@
         android:id="@+id/gasConsumptionHistoryFragment"
         android:name="com.example.gti.presentation.gas.history.GasConsumptionHistoryFragment"
         android:label="GasConsumptionHistoryFragment" />
+    <fragment
+        android:id="@+id/exploitationFragment"
+        android:name="com.example.gti.presentation.exploitation.ExploitationFragment"
+        android:label="ExploitationFragment" />
 
 </navigation>

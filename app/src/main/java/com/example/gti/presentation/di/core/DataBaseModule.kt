@@ -41,8 +41,8 @@ class DataBaseModule {
 
     @Singleton
     @Provides
-    fun provideOilChangeDAO(gtiDatabase: GtiDatabase): OilChangeDAO {
-        return gtiDatabase.oilChangeDAO()
+    fun provideOilChangeDAO(gtiDatabase: GtiDatabase): FiltersChangeDAO {
+        return gtiDatabase.filtersChangeDAO()
     }
 
     @Singleton

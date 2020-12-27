@@ -64,6 +64,11 @@ class GasConsumptionHistoryFragment : Fragment() {
         }
         binding.gasHistoryRecyclerView.adapter = adapter
 
+        refreshGasData()
+    }
+
+    private fun refreshGasData() {
+        adapter.setList(null)
         displayGasData()
     }
 
@@ -98,17 +103,12 @@ class GasConsumptionHistoryFragment : Fragment() {
             .setMessage(resources.getString(R.string.record_delete_confirmation))
             .setPositiveButton(resources.getString(R.string.yes)) { _, _ ->
                 gasConsumptionHistoryViewModel.deleteGasData(gas)
-                refresh()
+                refreshGasData()
             }
             .setNegativeButton(resources.getString(R.string.no)) { dialog, _ ->
                 dialog.dismiss()
             }
             .show()
-    }
-
-    private fun refresh() {
-        adapter.setList(null)
-        displayGasData()
     }
 
 }

@@ -91,6 +91,10 @@ class HomeFragment : Fragment() {
         binding.gasCardView.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_gasFeaturesFragment)
         }
+
+        binding.exploitationCardView.setOnClickListener {
+            it.findNavController().navigate(R.id.action_homeFragment_to_exploitationFragment)
+        }
     }
 
     private fun refreshData() {

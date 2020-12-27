@@ -39,8 +39,8 @@ class UseCaseModule {
     }
 
     @Provides
-    fun provideGetLatestOilChangeUseCase(oilChangeRepository: OilChangeRepository): GetLatestOilChangeUseCase {
-        return GetLatestOilChangeUseCase(oilChangeRepository)
+    fun provideGetLatestOilChangeUseCase(filtersChangeRepository: FiltersChangeRepository): GetLatestOilChangeUseCase {
+        return GetLatestOilChangeUseCase(filtersChangeRepository)
     }
 
     @Provides

@@ -7,5 +7,16 @@
     <string name="record_delete_confirmation">Czy na pewno chcesz usunąć dane spalania?</string>
     <string name="yes">TAK</string>
     <string name="no">NIE</string>
+    <string name="oil_change">Wymiana oleju</string>
+    <string name="mileage">Przebieg:</string>
+    <string name="date">Data:</string>
+    <string name="mileage_example">180000 km</string>
+    <string name="date_example">01-12-2020</string>
+    <string name="mileage_difference_example">10000 km temu</string>
+    <string name="mileage_actualization">Uaktualnij dane dotyczące przebiegu</string>
+    <string name="data_actualization">Uaktualnij dane</string>
+    <string name="last_oil_check">Ostatni odczyt stanu oleju</string>
+    <string name="min">MIN</string>
+    <string name="max">MAX</string>
 
 </resources>
