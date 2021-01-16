@@ -39,8 +39,23 @@ class UseCaseModule {
     }
 
     @Provides
-    fun provideGetLatestOilChangeUseCase(filtersChangeRepository: FiltersChangeRepository): GetLatestOilChangeUseCase {
-        return GetLatestOilChangeUseCase(filtersChangeRepository)
+    fun provideGetLatestOilChangeUseCase(exploitationPartChangeRepository: ExploitationPartChangeRepository): GetLatestOilChangeUseCase {
+        return GetLatestOilChangeUseCase(exploitationPartChangeRepository)
+    }
+
+    @Provides
+    fun provideGetLatestOilFilterChangeUseCase(exploitationPartChangeRepository: ExploitationPartChangeRepository): GetLatestOilFilterChangeUseCase {
+        return GetLatestOilFilterChangeUseCase(exploitationPartChangeRepository)
+    }
+
+    @Provides
+    fun provideGetLatestAirFilterChangeUseCase(exploitationPartChangeRepository: ExploitationPartChangeRepository): GetLatestAirFilterChangeUseCase {
+        return GetLatestAirFilterChangeUseCase(exploitationPartChangeRepository)
+    }
+
+    @Provides
+    fun provideGetLatestCabinFilterChangeUseCase(exploitationPartChangeRepository: ExploitationPartChangeRepository): GetLatestCabinFilterChangeUseCase {
+        return GetLatestCabinFilterChangeUseCase(exploitationPartChangeRepository)
     }
 
     @Provides
@@ -51,6 +66,11 @@ class UseCaseModule {
     @Provides
     fun provideInsertGasUseCase(gasRepository: GasRepository): InsertGasUseCase {
         return InsertGasUseCase(gasRepository)
+    }
+
+    @Provides
+    fun provideInsertExploitationPartChangeUseCase(exploitationPartChangeRepository: ExploitationPartChangeRepository): InsertExploitationPartChangeUseCase {
+        return InsertExploitationPartChangeUseCase(exploitationPartChangeRepository)
     }
 
 }

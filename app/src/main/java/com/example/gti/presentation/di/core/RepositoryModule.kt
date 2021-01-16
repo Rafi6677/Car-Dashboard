@@ -30,8 +30,8 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideFiltersChangeRepository(filtersChangeDataSource: FiltersChangeDataSource): FiltersChangeRepository {
-        return FiltersChangeRepositoryImpl(filtersChangeDataSource)
+    fun provideExploitationPartChangeRepository(exploitationPartChangeDataSource: ExploitationPartChangeDataSource): ExploitationPartChangeRepository {
+        return ExploitationPartChangeRepositoryImpl(exploitationPartChangeDataSource)
     }
 
     @Singleton

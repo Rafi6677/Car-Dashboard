@@ -1,9 +1,9 @@
 package com.example.gti.domain.usecase
 
-import com.example.gti.domain.repository.FiltersChangeRepository
+import com.example.gti.domain.repository.ExploitationPartChangeRepository
 
-class GetLatestAirFilterChangeUseCase(private val filtersChangeRepository: FiltersChangeRepository) {
+class GetLatestAirFilterChangeUseCase(private val exploitationPartChangeRepository: ExploitationPartChangeRepository) {
 
-    suspend fun execute() = filtersChangeRepository.getLatestAirFilterChange()
+    suspend fun execute() = exploitationPartChangeRepository.getLatestAirFilterChange()
 
 }

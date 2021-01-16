@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.gti.domain.usecase.GetLatestGasUseCase
 import java.lang.IllegalArgumentException
 
+@Suppress("UNCHECKED_CAST")
 class HomeViewModelFactory(
     private val getLatestGasDataUseCase: GetLatestGasUseCase
 ) : ViewModelProvider.Factory {

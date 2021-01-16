@@ -7,6 +7,7 @@ import com.example.gti.domain.usecase.EditGasUseCase
 import com.example.gti.domain.usecase.GetAllGasUseCase
 import java.lang.IllegalArgumentException
 
+@Suppress("UNCHECKED_CAST")
 class GasConsumptionHistoryViewModelFactory(
     private val getAllGasUseCase: GetAllGasUseCase,
     private val editGasUseCase: EditGasUseCase,

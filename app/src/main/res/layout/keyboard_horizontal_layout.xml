@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.gti.presentation.home.HomeViewModel"/>
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toStartOf="@+id/gridLayout"
+    app:layout_constraintStart_toStartOf="@+id/gridLayout">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="@color/colorBlackTransparent"
+        app:cardCornerRadius="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <GridLayout
+                android:id="@+id/gridLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnCount="5"
+                android:rowCount="2"
+                android:layout_marginHorizontal="5sp"
+                android:layout_marginVertical="5sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- row1 -->
+
+                <include
+                    android:id="@+id/button11"
+                    layout="@layout/keyboard_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"/>
+
+                <include
+                    android:id="@+id/button12"
+                    layout="@layout/keyboard_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"/>
+
+                <include
+                    android:id="@+id/button13"
+                    layout="@layout/keyboard_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"/>
+
+                <include
+                    android:id="@+id/button14"
+                    layout="@layout/keyboard_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"/>
+
+                <include
+                    android:id="@+id/button15"
+                    layout="@layout/keyboard_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"/>
+
+                <!-- row2 -->
+
+                <include
+                    android:id="@+id/button21"
+                    layout="@layout/keyboard_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"/>
+
+                <include
+                    android:id="@+id/button22"
+                    layout="@layout/keyboard_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"/>
+
+                <include
+                    android:id="@+id/button23"
+                    layout="@layout/keyboard_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"/>
+
+                <include
+                    android:id="@+id/button24"
+                    layout="@layout/keyboard_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"/>
+
+                <include
+                    android:id="@+id/button25"
+                    layout="@layout/keyboard_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"/>
+
+            </GridLayout>
+
+            <!-- Undo button -->
+
+            <include
+                android:id="@+id/button_undo"
+                layout="@layout/keyboard_button"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

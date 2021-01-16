@@ -6,8 +6,8 @@ import androidx.databinding.Observable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gti.R
-import com.example.gti.databinding.FragmentGasFeaturesBinding
 import com.example.gti.data.db.model.Gas
+import com.example.gti.databinding.FragmentAddFuelConsumptionBinding
 import com.example.gti.domain.usecase.InsertGasUseCase
 import kotlinx.coroutines.launch
 import java.util.*
@@ -16,7 +16,7 @@ class GasFeaturesViewModel(
     private val insertGasUseCase: InsertGasUseCase
 ) : ViewModel(), Observable{
 
-    fun saveGasFeature(context: Context, binding: FragmentGasFeaturesBinding) {
+    fun saveGasFeature(context: Context, binding: FragmentAddFuelConsumptionBinding) {
         val mileageText = binding.leftTextView.text.toString()
         val fuelText = binding.middleTextView.text.toString()
 
@@ -48,7 +48,7 @@ class GasFeaturesViewModel(
     }
 
     private fun insert(context: Context, gas: Gas) = viewModelScope.launch {
-        val index = insertGasUseCase.execute(gas)
+        insertGasUseCase.execute(gas)
 
         Toast.makeText(context, context.resources.getString(R.string.average_fuel_save), Toast.LENGTH_SHORT)
             .show()

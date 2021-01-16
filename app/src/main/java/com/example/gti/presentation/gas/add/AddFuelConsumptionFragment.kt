@@ -9,17 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.gti.R
-import com.example.gti.databinding.FragmentGasFeaturesBinding
+import com.example.gti.databinding.FragmentAddFuelConsumptionBinding
 import com.example.gti.presentation.di.Injector
 import com.example.gti.utils.KeyboardUtils
 import javax.inject.Inject
 
-class GasFeaturesFragment : Fragment() {
+class AddFuelConsumptionFragment : Fragment() {
 
     @Inject
     lateinit var factory: GasFeaturesViewModelFactory
 
-    private lateinit var binding: FragmentGasFeaturesBinding
+    private lateinit var binding: FragmentAddFuelConsumptionBinding
     private lateinit var gasFeaturesViewModel: GasFeaturesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,10 +36,10 @@ class GasFeaturesFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_gas_features,
+            R.layout.fragment_add_fuel_consumption,
             container,
             false
         )
@@ -51,27 +51,26 @@ class GasFeaturesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initButtons()
     }
 
     private fun prepareView() {
-        KeyboardUtils.initKeyboardButtonsValues(binding.leftKeyboard)
-        KeyboardUtils.initKeyboardButtonsValues(binding.middleKeyboard)
-        KeyboardUtils.initKeyboardButtonsValues(binding.rightKeyboard)
+        KeyboardUtils.initVerticalKeyboardButtonsValues(binding.leftKeyboard)
+        KeyboardUtils.initVerticalKeyboardButtonsValues(binding.middleKeyboard)
+        KeyboardUtils.initVerticalKeyboardButtonsValues(binding.rightKeyboard)
     }
 
     private fun initButtons() {
-        KeyboardUtils.onMileageKeyboardButtonClicked(binding, binding.leftKeyboard)
-        KeyboardUtils.onFuelKeyboardButtonClicked(binding, binding.middleKeyboard)
-        KeyboardUtils.onPriceKeyboardButtonClicked(binding, binding.rightKeyboard)
+        KeyboardUtils.onVerticalMileageKeyboardButtonClicked(binding, binding.leftKeyboard)
+        KeyboardUtils.onVerticalFuelKeyboardButtonClicked(binding, binding.middleKeyboard)
+        KeyboardUtils.onVerticalPriceKeyboardButtonClicked(binding, binding.rightKeyboard)
 
         binding.backButtonImageView.setOnClickListener {
             requireActivity().onBackPressed()
         }
 
         binding.historyButtonImageView.setOnClickListener {
-            it.findNavController().navigate(R.id.action_gasFeaturesFragment_to_gasConsumptionHistoryFragment)
+            it.findNavController().navigate(R.id.action_addFuelConsumptionFragment_to_gasConsumptionHistoryFragment)
         }
 
         binding.saveButtonImageView.setOnClickListener {

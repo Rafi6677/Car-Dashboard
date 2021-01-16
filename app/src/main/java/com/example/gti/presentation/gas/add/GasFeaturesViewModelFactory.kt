@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.gti.domain.usecase.InsertGasUseCase
 import java.lang.IllegalArgumentException
 
+@Suppress("UNCHECKED_CAST")
 class GasFeaturesViewModelFactory(
     private val insertGasUseCase: InsertGasUseCase
 ) : ViewModelProvider.Factory {

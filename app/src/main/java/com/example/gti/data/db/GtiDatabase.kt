@@ -9,7 +9,7 @@ import com.example.gti.data.db.model.*
         CarInsurance::class,
         CarReview::class,
         Gas::class,
-        FiltersChange::class,
+        ExploitationPartChange::class,
         OilCheck::class
     ],
     version = 1,
@@ -20,7 +20,7 @@ abstract class GtiDatabase : RoomDatabase() {
     abstract fun carInsuranceDAO(): CarInsuranceDAO
     abstract fun carReviewDAO(): CarReviewDAO
     abstract fun gasDAO(): GasDAO
-    abstract fun filtersChangeDAO(): FiltersChangeDAO
+    abstract fun exploitationPartChangeDAO(): ExploitationPartChangeDAO
     abstract fun oilCheckDAO(): OilCheckDAO
 
 }

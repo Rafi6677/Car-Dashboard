@@ -1,9 +1,9 @@
 package com.example.gti.domain.usecase
 
-import com.example.gti.domain.repository.FiltersChangeRepository
+import com.example.gti.domain.repository.ExploitationPartChangeRepository
 
-class GetLatestOilChangeUseCase(private val filtersChangeRepository: FiltersChangeRepository) {
+class GetLatestOilChangeUseCase(private val exploitationPartChangeRepository: ExploitationPartChangeRepository) {
 
-    suspend fun execute() = filtersChangeRepository.getLatestFiltersChange()
+    suspend fun execute() = exploitationPartChangeRepository.getLatestOilChange()
 
 }

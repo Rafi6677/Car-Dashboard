@@ -30,8 +30,8 @@ class DataSourceModule {
 
     @Singleton
     @Provides
-    fun provideOilChangeDataSource(filtersChangeDAO: FiltersChangeDAO): FiltersChangeDataSource {
-        return FiltersChangeDataSourceImpl(filtersChangeDAO)
+    fun provideExploitationPartChangeDataSource(exploitationPartChangeDAO: ExploitationPartChangeDAO): ExploitationPartChangeDataSource {
+        return ExploitationPartChangeDataSourceImpl(exploitationPartChangeDAO)
     }
 
     @Singleton
