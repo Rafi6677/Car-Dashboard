@@ -1,6 +1,7 @@
 package com.example.gti.presentation.di.core
 
 import com.example.gti.presentation.di.exploitation.actualization.ExploitationElementActualizationSubcomponent
+import com.example.gti.presentation.di.exploitation.exploitation.ExploitationSubcomponent
 import com.example.gti.presentation.di.gas.add.GasSubcomponent
 import com.example.gti.presentation.di.gas.history.GasHistorySubcomponent
 import com.example.gti.presentation.di.home.HomeSubcomponent
@@ -20,6 +21,7 @@ interface AppComponent {
     fun homeSubComponent(): HomeSubcomponent.Factory
     fun gasSubComponent(): GasSubcomponent.Factory
     fun gasHistorySubComponent(): GasHistorySubcomponent.Factory
+    fun exploitationSubComponent(): ExploitationSubcomponent.Factory
     fun exploitationElementActualizationSubComponent(): ExploitationElementActualizationSubcomponent.Factory
 
 }

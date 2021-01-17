@@ -9,6 +9,6 @@ interface OilCheckRepository {
     suspend fun deleteOilCheck(oilCheck: OilCheck)
     suspend fun deleteAllOilCheck()
     suspend fun getAllOilCheck(): List<OilCheck>
-    suspend fun getLatestOilCheck(): OilCheck
+    suspend fun getLatestOilCheck(): OilCheck?
 
 }
