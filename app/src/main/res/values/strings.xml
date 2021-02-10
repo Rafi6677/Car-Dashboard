@@ -26,6 +26,8 @@
     <string name="mileage_difference_example">10000 km temu</string>
     <string name="mileage_actualization">Uaktualnij przebieg</string>
     <string name="data_actualization">Uaktualnij dane</string>
+    <string name="last_average_fuel_consumption">Ostatnie średnie spalanie</string>
+    <string name="last_changed_parts">Ostatnie wymieniane elementy</string>
     <string name="last_oil_check">Ostatni odczyt poziomu oleju</string>
     <string name="last_oil_change">Ostatnia wymiana oleju</string>
     <string name="last_oil_filter_change">Ostatnia wymiana filtra oleju</string>
@@ -34,5 +36,7 @@
     <string name="new_part_change">Nowa wymiana</string>
     <string name="min">MIN</string>
     <string name="max">MAX</string>
+    <string name="technical_review_valid_until">Przegląd techniczny ważny do</string>
+    <string name="insurance_valid_until">Ubezpieczenie ważne do</string>
 
 </resources>

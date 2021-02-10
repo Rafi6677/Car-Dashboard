@@ -1,5 +1,6 @@
 package com.example.gti.presentation.gas.add
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.gti.R
+import com.example.gti.data.db.model.Gas
 import com.example.gti.databinding.FragmentAddFuelConsumptionBinding
 import com.example.gti.presentation.di.Injector
 import com.example.gti.utils.KeyboardUtils
@@ -21,6 +23,9 @@ class AddFuelConsumptionFragment : Fragment() {
 
     private lateinit var binding: FragmentAddFuelConsumptionBinding
     private lateinit var gasFeaturesViewModel: GasFeaturesViewModel
+    private lateinit var gasConsumption: Gas
+
+    private var currentDataOptionSelected: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,16 +60,11 @@ class AddFuelConsumptionFragment : Fragment() {
     }
 
     private fun prepareView() {
-        KeyboardUtils.initVerticalKeyboardButtonsValues(binding.leftKeyboard)
-        KeyboardUtils.initVerticalKeyboardButtonsValues(binding.middleKeyboard)
-        KeyboardUtils.initVerticalKeyboardButtonsValues(binding.rightKeyboard)
+        setCurrentDataOption(currentDataOptionSelected)
+        KeyboardUtils.initHorizontalKeyboardButtonsValues(binding.keyboard)
     }
 
     private fun initButtons() {
-        KeyboardUtils.onVerticalMileageKeyboardButtonClicked(binding, binding.leftKeyboard)
-        KeyboardUtils.onVerticalFuelKeyboardButtonClicked(binding, binding.middleKeyboard)
-        KeyboardUtils.onVerticalPriceKeyboardButtonClicked(binding, binding.rightKeyboard)
-
         binding.backButtonImageView.setOnClickListener {
             requireActivity().onBackPressed()
         }
@@ -76,6 +76,58 @@ class AddFuelConsumptionFragment : Fragment() {
         binding.saveButtonImageView.setOnClickListener {
             gasFeaturesViewModel.saveGasFeature(requireActivity(), binding)
             requireActivity().onBackPressed()
+        }
+
+        binding.distanceImageView.setOnClickListener {
+            setCurrentDataOption(0)
+        }
+
+        binding.fuelImageView.setOnClickListener {
+            setCurrentDataOption(1)
+        }
+
+        binding.priceImageView.setOnClickListener {
+            setCurrentDataOption(2)
+        }
+    }
+
+    private fun setCurrentDataOption(optionIndex: Int) {
+        currentDataOptionSelected = optionIndex
+
+        when (currentDataOptionSelected) {
+            0 -> {
+                binding.distanceTitleTextView.typeface = Typeface.DEFAULT_BOLD
+                binding.fuelTitleTextView.typeface = Typeface.DEFAULT
+                binding.priceTitleTextView.typeface = Typeface.DEFAULT
+
+                binding.distanceImageView.setBackgroundResource(R.drawable.radio_button_top_checked)
+                binding.fuelImageView.setBackgroundResource(R.drawable.radio_button_middle_unchecked)
+                binding.priceImageView.setBackgroundResource(R.drawable.radio_button_bottom_unchecked)
+
+                KeyboardUtils.onHorizontalMileageKeyboardButtonClicked(binding.distanceValueTextView, binding.keyboard)
+            }
+            1 -> {
+                binding.distanceTitleTextView.typeface = Typeface.DEFAULT
+                binding.fuelTitleTextView.typeface = Typeface.DEFAULT_BOLD
+                binding.priceTitleTextView.typeface = Typeface.DEFAULT
+
+                binding.distanceImageView.setBackgroundResource(R.drawable.radio_button_top_unchecked)
+                binding.fuelImageView.setBackgroundResource(R.drawable.radio_button_middle_checked)
+                binding.priceImageView.setBackgroundResource(R.drawable.radio_button_bottom_unchecked)
+
+                KeyboardUtils.onHorizontalFuelKeyboardButtonClicked(binding.fuelValueTextView, binding.keyboard)
+            }
+            2 -> {
+                binding.distanceTitleTextView.typeface = Typeface.DEFAULT
+                binding.fuelTitleTextView.typeface = Typeface.DEFAULT
+                binding.priceTitleTextView.typeface = Typeface.DEFAULT_BOLD
+
+                binding.distanceImageView.setBackgroundResource(R.drawable.radio_button_top_unchecked)
+                binding.fuelImageView.setBackgroundResource(R.drawable.radio_button_middle_unchecked)
+                binding.priceImageView.setBackgroundResource(R.drawable.radio_button_bottom_checked)
+
+                KeyboardUtils.onHorizontalPriceKeyboardButtonClicked(binding.priceValueTextView, binding.keyboard)
+            }
         }
     }
 

@@ -14,32 +14,31 @@ import java.util.*
 
 class GasFeaturesViewModel(
     private val insertGasUseCase: InsertGasUseCase
-) : ViewModel(), Observable{
+) : ViewModel(), Observable {
 
-    fun saveGasFeature(context: Context, binding: FragmentAddFuelConsumptionBinding) {
-        val mileageText = binding.leftTextView.text.toString()
-        val fuelText = binding.middleTextView.text.toString()
+    fun saveGasFeature(
+        context: Context,
+        binding: FragmentAddFuelConsumptionBinding
+    ) {
+        val distanceText = binding.distanceValueTextView.text.toString()
+        val fuelText = binding.fuelValueTextView.text.toString()
 
-        if (mileageText == "0.0" || mileageText == "0" || fuelText == "0.0" || fuelText == "0") {
+        if (distanceText == "0.0" || fuelText == "0.0") {
             Toast.makeText(context, "Uzupełnij dane.", Toast.LENGTH_SHORT)
                 .show()
         } else {
-            val gasPriceText = binding.rightTextView.text.toString()
+            val gasPriceText = binding.priceValueTextView.text.toString()
 
-            val travelDistance = mileageText.toDouble()
+            val travelDistance = distanceText.toDouble()
             val litersConsumed = fuelText.toDouble()
-            var gasPrice: Double = 0.toDouble()
+            val fuelPrice = if (gasPriceText != "0.0") gasPriceText.toDouble() else 0.toDouble()
             val currentDate = Date().time
-
-            if (gasPriceText != "0.0" || gasPriceText == "0") {
-                gasPrice = gasPriceText.toDouble()
-            }
 
             val gas = Gas(
                 0,
                 travelDistance,
                 litersConsumed,
-                gasPrice,
+                fuelPrice,
                 currentDate
             )
 

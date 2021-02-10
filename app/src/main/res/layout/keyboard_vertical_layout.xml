@@ -10,7 +10,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/gridLayout"
         app:layout_constraintStart_toStartOf="@+id/gridLayout">
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:cardBackgroundColor="@color/colorBlackTransparent"
-            app:cardCornerRadius="20dp">
+            app:cardCornerRadius="@dimen/_10sdp">
 
             <GridLayout
                 android:id="@+id/gridLayout"
@@ -27,8 +27,9 @@
                 android:layout_height="wrap_content"
                 android:columnCount="3"
                 android:rowCount="4"
-                android:layout_marginHorizontal="5sp"
-                android:layout_marginVertical="5sp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="5dp"
+                android:layout_gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -41,21 +42,21 @@
                     layout="@layout/keyboard_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5sp"/>
+                    android:layout_margin="@dimen/_2sdp"/>
 
                 <include
                     android:id="@+id/button12"
                     layout="@layout/keyboard_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5sp"/>
+                    android:layout_margin="@dimen/_2sdp"/>
 
                 <include
                     android:id="@+id/button13"
                     layout="@layout/keyboard_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5sp"/>
+                    android:layout_margin="@dimen/_2sdp"/>
 
                 <!-- row2 -->
 
@@ -64,21 +65,21 @@
                     layout="@layout/keyboard_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5sp"/>
+                    android:layout_margin="@dimen/_2sdp"/>
 
                 <include
                     android:id="@+id/button22"
                     layout="@layout/keyboard_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5sp"/>
+                    android:layout_margin="@dimen/_2sdp"/>
 
                 <include
                     android:id="@+id/button23"
                     layout="@layout/keyboard_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5sp"/>
+                    android:layout_margin="@dimen/_2sdp"/>
 
                 <!-- row3 -->
 
@@ -87,21 +88,21 @@
                     layout="@layout/keyboard_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5sp"/>
+                    android:layout_margin="@dimen/_2sdp"/>
 
                 <include
                     android:id="@+id/button32"
                     layout="@layout/keyboard_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5sp"/>
+                    android:layout_margin="@dimen/_2sdp"/>
 
                 <include
                     android:id="@+id/button33"
                     layout="@layout/keyboard_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5sp"/>
+                    android:layout_margin="@dimen/_2sdp"/>
 
                 <!-- row 4 -->
 
@@ -110,21 +111,21 @@
                     layout="@layout/keyboard_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5sp"/>
+                    android:layout_margin="@dimen/_2sdp"/>
 
                 <include
                     android:id="@+id/button42"
                     layout="@layout/keyboard_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5sp"/>
+                    android:layout_margin="@dimen/_2sdp"/>
 
                 <include
                     android:id="@+id/button43"
                     layout="@layout/keyboard_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5sp"/>
+                    android:layout_margin="@dimen/_2sdp"/>
 
             </GridLayout>
 

@@ -14,9 +14,7 @@ import com.example.gti.R
 import com.example.gti.databinding.FragmentHomeBinding
 import com.example.gti.presentation.di.Injector
 import com.example.gti.utils.CalculationUtils
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.example.gti.utils.StringUtils
 import javax.inject.Inject
 
 class HomeFragment : Fragment() {
@@ -70,21 +68,20 @@ class HomeFragment : Fragment() {
 
     private fun prepareView() {
         Glide.with(this)
-            .load(R.drawable.background4)
-            .centerCrop()
-            .into(binding.mainBackgroundImageView)
-
-        Glide.with(this)
             .load(R.drawable.icon_fuel_white)
             .into(binding.gasImageView)
 
         Glide.with(this)
-            .load(R.drawable.icon_oil_white)
-            .into(binding.oilImageView)
+            .load(R.drawable.icon_exploitation_white)
+            .into(binding.exploitationImageView)
 
         Glide.with(this)
             .load(R.drawable.icon_document_white)
             .into(binding.documentsImageView)
+
+        Glide.with(this)
+            .load(R.drawable.icon_settings_white)
+            .into(binding.settingsImageView)
     }
 
     private fun initButtons() {
@@ -98,17 +95,60 @@ class HomeFragment : Fragment() {
     }
 
     private fun refreshData() {
-        val gasFeaturesResponse = homeViewModel.getLatestGasData()
+        refreshGasConsumptionData()
+       // refreshExploitationData()
+    }
 
-        gasFeaturesResponse.observe(this, Observer {
+    private fun refreshGasConsumptionData() {
+        //binding.gasProgressBar.visibility = View.VISIBLE
+
+        val gasConsumptionResponse = homeViewModel.getLatestGasData()
+
+        gasConsumptionResponse.observe(this, Observer {
             if (it == null) {
                 homeViewModel.gasLatestFuelConsumption.value = "-.-  l/100km"
+                //binding.gasProgressBar.visibility = View.GONE
             } else {
-                homeViewModel.gasLatestFuelConsumption.value = CalculationUtils.calculateFuelConsumptionToString(it) +
-                        " " +
+                homeViewModel.gasLatestFuelConsumption.value = CalculationUtils.calculateFuelConsumptionToString(it) + " " +
                         resources.getString(R.string.average_fuel_consumption_value)
+
+                //binding.gasProgressBar.visibility = View.GONE
             }
         })
+    }
+
+    private fun refreshExploitationData() {
+        //binding.exploitationProgressBar.visibility = View.VISIBLE
+        var lastOilChangeDataLoaded = false
+        var lastOilLevelCheckDataLoaded = false
+
+        val oilChangeResponse = homeViewModel.getLatestOilChange()
+
+        oilChangeResponse.observe(this, Observer {
+            if (it == null) {
+                homeViewModel.latestOilChangeDate.value = "Brak danych"
+                lastOilChangeDataLoaded = true
+            } else {
+                homeViewModel.latestOilChangeDate.value = StringUtils.formatDateFromTimestampToString(it.lastOilChangeTimestamp)
+                lastOilChangeDataLoaded = true
+            }
+        })
+
+        val oilLevelCheckResponse = homeViewModel.getLatestOilLevel()
+
+        oilLevelCheckResponse.observe(this, Observer {
+            if (it == null) {
+                homeViewModel.latestOilLevel.value = "Brak danych"
+                lastOilLevelCheckDataLoaded = true
+            } else {
+                homeViewModel.latestOilLevel.value = it.oilPercentageLevel.toString() + "%"
+                lastOilLevelCheckDataLoaded = true
+            }
+        })
+
+        if (lastOilChangeDataLoaded && lastOilLevelCheckDataLoaded) {
+            //binding.exploitationProgressBar.visibility = View.GONE
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.gti.utils
 
 import android.widget.Button
+import android.widget.TextView
 import com.example.gti.databinding.FragmentAddFuelConsumptionBinding
 import com.example.gti.databinding.FragmentExploitationElementActualizationBinding
 import com.example.gti.databinding.KeyboardHorizontalLayoutBinding
@@ -41,10 +42,11 @@ object KeyboardUtils {
         (keyboardBinding.button24.keyboardButton).text = "9"
         (keyboardBinding.button25.keyboardButton).text = "0"
 
-        (keyboardBinding.buttonUndo.keyboardButton).text = "\u232b"
+        (keyboardBinding.button16Undo.keyboardButton).text = "\u232b"
+        (keyboardBinding.button26Dot.keyboardButton).text = "."
     }
 
-    fun onVerticalMileageKeyboardButtonClicked(
+    /*fun onVerticalMileageKeyboardButtonClicked(
         gasFeaturesBinding: FragmentAddFuelConsumptionBinding,
         keyboardBinding: KeyboardVerticalLayoutBinding
     ) {
@@ -90,18 +92,50 @@ object KeyboardUtils {
                 )
             }
         }
-    }
+    }*/
 
     fun onHorizontalMileageKeyboardButtonClicked(
-        exploitationPartBinding: FragmentExploitationElementActualizationBinding,
+        textView: TextView,
         keyboardBinding: KeyboardHorizontalLayoutBinding
     ) {
         val keyboardButtons = this.setHorizontalKeyboardButtonsList(keyboardBinding)
 
         for (keyboardButton in keyboardButtons) {
             keyboardButton.setOnClickListener {
-                exploitationPartBinding.newMileageValueTextView.text = prepareValueOnHorizontalMileageKeyboardButtonClick(
-                    exploitationPartBinding.newMileageValueTextView.text.toString(),
+                textView.text = prepareValueOnVerticalMileageKeyboardButtonClick(
+                    textView.text.toString(),
+                    keyboardButton.text.toString()
+                )
+            }
+        }
+    }
+
+    fun onHorizontalFuelKeyboardButtonClicked(
+        textView: TextView,
+        keyboardBinding: KeyboardHorizontalLayoutBinding
+    ) {
+        val keyboardButtons = this.setHorizontalKeyboardButtonsList(keyboardBinding)
+
+        for (keyboardButton in keyboardButtons) {
+            keyboardButton.setOnClickListener {
+                textView.text = prepareValueOnVerticalFuelKeyboardButtonClick(
+                    textView.text.toString(),
+                    keyboardButton.text.toString()
+                )
+            }
+        }
+    }
+
+    fun onHorizontalPriceKeyboardButtonClicked(
+        textView: TextView,
+        keyboardBinding: KeyboardHorizontalLayoutBinding
+    ) {
+        val keyboardButtons = this.setHorizontalKeyboardButtonsList(keyboardBinding)
+
+        for (keyboardButton in keyboardButtons) {
+            keyboardButton.setOnClickListener {
+                textView.text = prepareValueOnVerticalPriceKeyboardButtonClick(
+                    textView.text.toString(),
                     keyboardButton.text.toString()
                 )
             }
@@ -145,7 +179,8 @@ object KeyboardUtils {
         keyboardButtonsList.add(keyboardBinding.button24.keyboardButton)
         keyboardButtonsList.add(keyboardBinding.button25.keyboardButton)
 
-        keyboardButtonsList.add(keyboardBinding.buttonUndo.keyboardButton)
+        keyboardButtonsList.add(keyboardBinding.button16Undo.keyboardButton)
+        keyboardButtonsList.add(keyboardBinding.button26Dot.keyboardButton)
 
         return keyboardButtonsList
     }

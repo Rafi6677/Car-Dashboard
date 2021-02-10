@@ -36,8 +36,8 @@ class OilCheckRepositoryImpl(private val oilCheckDataSource: OilCheckDataSource)
         return oilCheckList
     }
 
-    override suspend fun getLatestOilCheck(): OilCheck {
-        lateinit var latestOilCheck: OilCheck
+    override suspend fun getLatestOilCheck(): OilCheck? {
+        var latestOilCheck: OilCheck? = null
 
         try {
             latestOilCheck = oilCheckDataSource.getLatestOilCheckFromDB()
