@@ -1,5 +1,6 @@
 package com.example.gti.data.db.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.gti.data.db.model.CarInsurance
 
@@ -19,7 +20,7 @@ interface CarInsuranceDAO {
     suspend fun deleteAllCarInsuranceData(): Int
 
     @Query("SELECT * FROM car_insurance")
-    suspend fun getAllCarInsuranceData(): List<CarInsurance>
+    fun getAllCarInsuranceData(): LiveData<List<CarInsurance>>
 
     @Query("SELECT * FROM car_insurance WHERE car_insurance_timestamp = (SELECT MAX(car_insurance_timestamp) FROM car_insurance)")
     suspend fun getLatestCarInsuranceData(): CarInsurance

@@ -1,5 +1,6 @@
 package com.example.gti.domain.repository
 
+import androidx.lifecycle.LiveData
 import com.example.gti.data.db.model.CarInsurance
 
 interface CarInsuranceRepository {
@@ -8,7 +9,7 @@ interface CarInsuranceRepository {
     suspend fun updateCarInsurance(carInsurance: CarInsurance)
     suspend fun deleteCarInsurance(carInsurance: CarInsurance)
     suspend fun deleteAllCarInsurance()
-    suspend fun getAllCarInsurance(): List<CarInsurance>
+    fun getAllCarInsurance(): LiveData<List<CarInsurance>>
     suspend fun getLatestCarInsurance(): CarInsurance
 
 }

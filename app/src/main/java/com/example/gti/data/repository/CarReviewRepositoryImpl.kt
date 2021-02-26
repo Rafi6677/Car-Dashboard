@@ -1,6 +1,7 @@
 package com.example.gti.data.repository
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import com.example.gti.data.db.model.CarReview
 import com.example.gti.data.repository.datasource.CarReviewDataSource
 import com.example.gti.domain.repository.CarReviewRepository
@@ -24,17 +25,7 @@ class CarReviewRepositoryImpl(private val carReviewDataSource: CarReviewDataSour
         carReviewDataSource.deleteAllCarReviewFromDB()
     }
 
-    override suspend fun getAllCarReview(): List<CarReview> {
-        lateinit var carReviewList: List<CarReview>
-
-        try {
-            carReviewList = carReviewDataSource.getAllCarReviewFromDB()
-        } catch (e: Exception) {
-            Log.i("ExceptionTag", e.message.toString())
-        }
-
-        return carReviewList
-    }
+    override fun getAllCarReview(): LiveData<List<CarReview>> = carReviewDataSource.getAllCarReviewFromDB()
 
     override suspend fun getLatestCarReview(): CarReview {
         lateinit var latestCarReview: CarReview

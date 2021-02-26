@@ -1,5 +1,6 @@
 package com.example.gti.data.repository.datasource
 
+import androidx.lifecycle.LiveData
 import com.example.gti.data.db.model.CarReview
 
 interface CarReviewDataSource {
@@ -8,7 +9,7 @@ interface CarReviewDataSource {
     suspend fun updateCarReviewToDB(carReview: CarReview)
     suspend fun deleteCarReviewFromDB(carReview: CarReview)
     suspend fun deleteAllCarReviewFromDB()
-    suspend fun getAllCarReviewFromDB(): List<CarReview>
+    fun getAllCarReviewFromDB(): LiveData<List<CarReview>>
     suspend fun getLatestCarReviewFromDB(): CarReview
 
 }

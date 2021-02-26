@@ -76,13 +76,10 @@ class GasConsumptionHistoryFragment : Fragment() {
         binding.noFuelConsumptionDataFoundTextView.visibility = View.GONE
         binding.gasHistoryProgressBar.visibility = View.VISIBLE
 
-        val response = gasConsumptionHistoryViewModel.getGasAllData()
-
-        response.observe(viewLifecycleOwner, Observer {
+        gasConsumptionHistoryViewModel.allGasConsumptionData.observe(viewLifecycleOwner, Observer {
             adapter.setList(it)
-            adapter.notifyDataSetChanged()
 
-            if (it!!.isNotEmpty()) {
+            if (it.isNotEmpty()) {
                 binding.gasHistoryProgressBar.visibility = View.GONE
             } else {
                 binding.gasHistoryProgressBar.visibility = View.GONE

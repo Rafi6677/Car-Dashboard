@@ -1,6 +1,7 @@
 package com.example.gti.data.repository
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import com.example.gti.data.db.model.CarInsurance
 import com.example.gti.data.repository.datasource.CarInsuranceDataSource
 import com.example.gti.domain.repository.CarInsuranceRepository
@@ -24,17 +25,7 @@ class CarInsuranceRepositoryImpl(private val carInsuranceDataSource: CarInsuranc
         carInsuranceDataSource.deleteAllCarInsuranceFromDB()
     }
 
-    override suspend fun getAllCarInsurance(): List<CarInsurance> {
-        lateinit var carInsuranceList: List<CarInsurance>
-
-        try {
-            carInsuranceList = carInsuranceDataSource.getAllCarInsuranceFromDB()
-        } catch (e: Exception) {
-            Log.i("ExceptionTag", e.message.toString())
-        }
-
-        return carInsuranceList
-    }
+    override fun getAllCarInsurance(): LiveData<List<CarInsurance>> = carInsuranceDataSource.getAllCarInsuranceFromDB()
 
     override suspend fun getLatestCarInsurance(): CarInsurance {
         lateinit var latestCarInsurance: CarInsurance

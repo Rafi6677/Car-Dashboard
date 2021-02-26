@@ -15,10 +15,7 @@ class GasConsumptionHistoryViewModel(
     private val deleteGasUseCase: DeleteGasUseCase
 ) : ViewModel() {
 
-    fun getGasAllData() = liveData {
-        val allGasData = getAllGasUseCase.execute()
-        emit(allGasData)
-    }
+    val allGasConsumptionData = getAllGasUseCase.execute()
 
     fun deleteGasData(gas: Gas)= viewModelScope.launch {
         deleteGasUseCase.execute(gas)

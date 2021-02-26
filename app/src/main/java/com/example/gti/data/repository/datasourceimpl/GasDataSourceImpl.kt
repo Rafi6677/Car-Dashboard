@@ -1,5 +1,6 @@
 package com.example.gti.data.repository.datasourceimpl
 
+import androidx.lifecycle.LiveData
 import com.example.gti.data.db.dao.GasDAO
 import com.example.gti.data.db.model.Gas
 import com.example.gti.data.repository.datasource.GasDataSource
@@ -33,7 +34,7 @@ class GasDataSourceImpl(private val dao: GasDAO) : GasDataSource {
         }
     }
 
-    override suspend fun getAllGasFromDB(): List<Gas> = dao.getAllGasData()
+    override fun getAllGasFromDB(): LiveData<List<Gas>> = dao.getAllGasData()
 
     override suspend fun getLatestGasFromDB(): Gas = dao.getLatestGasData()
 

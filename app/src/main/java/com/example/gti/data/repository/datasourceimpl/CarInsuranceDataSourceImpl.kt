@@ -1,5 +1,6 @@
 package com.example.gti.data.repository.datasourceimpl
 
+import androidx.lifecycle.LiveData
 import com.example.gti.data.db.dao.CarInsuranceDAO
 import com.example.gti.data.db.model.CarInsurance
 import com.example.gti.data.repository.datasource.CarInsuranceDataSource
@@ -34,7 +35,7 @@ class CarInsuranceDataSourceImpl(private val dao: CarInsuranceDAO) :
         }
     }
 
-    override suspend fun getAllCarInsuranceFromDB(): List<CarInsurance> = dao.getAllCarInsuranceData()
+    override fun getAllCarInsuranceFromDB(): LiveData<List<CarInsurance>> = dao.getAllCarInsuranceData()
 
     override suspend fun getLatestCarInsuranceFromDB(): CarInsurance = dao.getLatestCarInsuranceData()
 

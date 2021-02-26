@@ -1,5 +1,6 @@
 package com.example.gti.data.repository.datasourceimpl
 
+import androidx.lifecycle.LiveData
 import com.example.gti.data.db.dao.OilCheckDAO
 import com.example.gti.data.db.model.OilCheck
 import com.example.gti.data.repository.datasource.OilCheckDataSource
@@ -33,7 +34,7 @@ class OilCheckDataSourceImpl(private val dao: OilCheckDAO) : OilCheckDataSource 
         }
     }
 
-    override suspend fun getAllOilCheckFromDB(): List<OilCheck> = dao.getAllOilCheckData()
+    override fun getAllOilCheckFromDB(): LiveData<List<OilCheck>> = dao.getAllOilCheckData()
 
     override suspend fun getLatestOilCheckFromDB(): OilCheck = dao.getLatestOilCheckData()
 

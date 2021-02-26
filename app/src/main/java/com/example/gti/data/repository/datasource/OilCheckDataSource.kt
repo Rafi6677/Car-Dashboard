@@ -1,5 +1,6 @@
 package com.example.gti.data.repository.datasource
 
+import androidx.lifecycle.LiveData
 import com.example.gti.data.db.model.OilCheck
 
 interface OilCheckDataSource {
@@ -8,7 +9,7 @@ interface OilCheckDataSource {
     suspend fun updateOilCheckToDB(oilCheck: OilCheck)
     suspend fun deleteOilCheckFromDB(oilCheck: OilCheck)
     suspend fun deleteAllOilCheckFromDB()
-    suspend fun getAllOilCheckFromDB(): List<OilCheck>
+    fun getAllOilCheckFromDB(): LiveData<List<OilCheck>>
     suspend fun getLatestOilCheckFromDB(): OilCheck
 
 }

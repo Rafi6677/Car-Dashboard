@@ -1,6 +1,7 @@
 package com.example.gti.data.repository
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import com.example.gti.data.db.model.OilCheck
 import com.example.gti.data.repository.datasource.OilCheckDataSource
 import com.example.gti.domain.repository.OilCheckRepository
@@ -24,17 +25,7 @@ class OilCheckRepositoryImpl(private val oilCheckDataSource: OilCheckDataSource)
         oilCheckDataSource.deleteAllOilCheckFromDB()
     }
 
-    override suspend fun getAllOilCheck(): List<OilCheck> {
-        lateinit var oilCheckList: List<OilCheck>
-
-        try {
-            oilCheckList = oilCheckDataSource.getAllOilCheckFromDB()
-        } catch (e: Exception) {
-            Log.i("ExceptionTag", e.message.toString())
-        }
-
-        return oilCheckList
-    }
+    override fun getAllOilCheck(): LiveData<List<OilCheck>> = oilCheckDataSource.getAllOilCheckFromDB()
 
     override suspend fun getLatestOilCheck(): OilCheck? {
         var latestOilCheck: OilCheck? = null
