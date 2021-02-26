@@ -78,6 +78,7 @@ class GasConsumptionHistoryFragment : Fragment() {
 
         gasConsumptionHistoryViewModel.allGasConsumptionData.observe(viewLifecycleOwner, Observer {
             adapter.setList(it)
+            adapter.notifyDataSetChanged()
 
             if (it.isNotEmpty()) {
                 binding.gasHistoryProgressBar.visibility = View.GONE

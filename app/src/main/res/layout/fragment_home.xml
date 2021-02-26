@@ -161,7 +161,7 @@
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="@={viewModel.gasLatestFuelConsumption}"
+                            android:text="01-01-2021"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/_14ssp" />
 
@@ -184,7 +184,7 @@
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="@={viewModel.gasLatestFuelConsumption}"
+                            android:text="01-01-2021"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/_14ssp"/>
 
@@ -252,7 +252,7 @@
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="@={viewModel.gasLatestFuelConsumption}"
+                            android:text="01-01-2021"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/_14ssp" />
 
@@ -275,7 +275,7 @@
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="@={viewModel.gasLatestFuelConsumption}"
+                            android:text="01-01-2021"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/_14ssp"/>
 

@@ -19,13 +19,15 @@ class GasFeaturesViewModel(
     fun saveGasFeature(
         context: Context,
         binding: FragmentAddFuelConsumptionBinding
-    ) {
+    ): Boolean {
         val distanceText = binding.distanceValueTextView.text.toString()
         val fuelText = binding.fuelValueTextView.text.toString()
 
         if (distanceText == "0.0" || fuelText == "0.0") {
             Toast.makeText(context, "Uzupełnij dane.", Toast.LENGTH_SHORT)
                 .show()
+
+            return false
         } else {
             val gasPriceText = binding.priceValueTextView.text.toString()
 
@@ -43,6 +45,7 @@ class GasFeaturesViewModel(
             )
 
             insert(context, gas)
+            return true
         }
     }
 

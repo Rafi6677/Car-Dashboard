@@ -74,8 +74,9 @@ class AddFuelConsumptionFragment : Fragment() {
         }
 
         binding.saveButtonImageView.setOnClickListener {
-            gasFeaturesViewModel.saveGasFeature(requireActivity(), binding)
-            requireActivity().onBackPressed()
+            if (gasFeaturesViewModel.saveGasFeature(requireActivity(), binding)) {
+                requireActivity().onBackPressed()
+            }
         }
 
         binding.distanceImageView.setOnClickListener {

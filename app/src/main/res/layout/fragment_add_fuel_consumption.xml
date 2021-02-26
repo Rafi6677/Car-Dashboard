@@ -206,7 +206,9 @@
                     android:layout_weight="2"
                     android:weightSum="3"
                     android:orientation="vertical"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingRight="@dimen/_10sdp">
 
                     <ImageView
                         android:id="@+id/distance_imageView"

@@ -9,7 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,55 +22,57 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
             android:weightSum="13">
 
             <TextView
                 android:id="@+id/fuel_consumed_textView"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="12.5"
-                android:textSize="20sp"
+                android:textSize="@dimen/_15ssp"
                 android:textColor="@color/colorWhite"
                 android:gravity="center"/>
 
             <TextView
                 android:id="@+id/travel_distance_textView"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="420"
-                android:textSize="20sp"
+                android:textSize="@dimen/_15ssp"
                 android:textColor="@color/colorWhite"
                 android:gravity="center"/>
 
             <TextView
                 android:id="@+id/gas_refueling_price_textView"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="213.99"
-                android:textSize="20sp"
+                android:textSize="@dimen/_15ssp"
                 android:textColor="@color/colorWhite"
                 android:gravity="center"/>
 
             <TextView
                 android:id="@+id/gas_per_liter_price_textView"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="4.79"
-                android:textSize="20sp"
+                android:textSize="@dimen/_15ssp"
                 android:textColor="@color/colorWhite"
                 android:gravity="center"/>
 
             <TextView
                 android:id="@+id/refueling_date_textView"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="4"
                 android:text="01.12.2020"
-                android:textSize="20sp"
+                android:textSize="@dimen/_15ssp"
                 android:textColor="@color/colorWhite"
                 android:gravity="center"/>
 
@@ -79,6 +81,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:scaleType="fitCenter"
                 android:src="@drawable/icon_delete"
                 android:background="@color/colorTransparent"/>
 
